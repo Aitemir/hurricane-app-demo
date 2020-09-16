@@ -400,14 +400,12 @@ export class EvacueeMainComponent implements OnInit {
   }
 
   submitGroup() {
-    //this.evacueeGroup.address = this.address;      
     this.evacueeGroup.address = this.evacueeService.getAddress();      
     for (let index = 0; index < this.evacueeList.length; index++) {
       this.validateEvacuee(this.evacueeList[index]);
     }     
     this.evacueeGroup.evacuees = this.evacueeList; 
     this.evacueeGroup.shelterId = this.shelter.shelterId;
-    //this.evacueeGroup.shelterId = this.evacueeService.getShelter().shelterId;
 
     this.evacueeService.showStorage();
     this.openSummaryDialog(this.evacueeGroup);    
