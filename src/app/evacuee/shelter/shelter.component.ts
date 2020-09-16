@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ErrorHandler } from '@angular/core';
 import { Shelter } from 'src/app/shared/shelter.model';
 import { HttpClient } from '@angular/common/http';
-//import { } from '@agm/core/services/google-maps-types';
-//import { google } from '@agm/core/services/google-maps-types';
 import { MatDialog } from '@angular/material/dialog';
 import { ShelterDialogComponent } from './shelter-dialog/shelter-dialog.component';
 import { Router } from '@angular/router';
@@ -10,8 +8,7 @@ import { ShelterWarningDialogComponent } from './shelter-warning-dialog/shelter-
 import { timeout } from 'rxjs/internal/operators/timeout';
 import { ShelterInfoDialogComponent } from './shelter-info-dialog/shelter-info-dialog.component';
 import { EvacueeService } from '../evacuee.service';
-//import { google } from '@agm/core/services/google-maps-types';
-//import * as googleApi from '@agm/core/services/google-maps-types';
+
 
 @Component({
   selector: 'app-shelter',
@@ -37,7 +34,7 @@ export class ShelterComponent implements OnInit {
 
   ngOnInit(): void {
     // I have to work on this part! I need to add catch statement and make promises look mor eelengamt. 
-    // the promise is uncaught when the shelter list is not available!!!
+    // the promise is uncaught when the shelter list is not available
     this.zoom = 4; 
     this.getAvailableShelters().then(data => this.shelters = data)
     .then(data => this.getLocation()).then(coords => this.coords = coords).catch(error=>console.log(error))
@@ -52,7 +49,7 @@ export class ShelterComponent implements OnInit {
       const apiURL = "http://172.16.22.128:5000/api/shelters";
       this.http
         .get<Shelter[]>(apiURL)
-        .pipe(timeout(5000)) // timeout for the get request
+        .pipe(timeout(5000))
         .toPromise()
         .then((data: Shelter[]) => {
           console.log('in promise1');
