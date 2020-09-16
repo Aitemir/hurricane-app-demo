@@ -99,17 +99,12 @@ export class ShelterComponent implements OnInit {
       });
     } 
   }
-// ATTENTION!!!! - https://stackoverflow.com/questions/45081665/cannot-find-module-agm-core comment out import {} and uncomment {google}
   calculatePositionDistances(lat:number, lng:number): Promise<number[]> {
     console.log('in promise3');
     return new Promise<number[]>((resolve,reject) =>{
       try {
       var geoLocationGM = new google.maps.LatLng(lat, lng); //declaring my geolocation
-      //var geoLocationGM = <google.maps.LatLng>{};
-      //var gmapsObjects: google.maps.LatLng [] = []
       var gmapsObjects: any[] = [];
-      //var gmapsObjects = new Array<google.maps.LatLng>();
-      //var gmapsObjects: Object [] = [];
       var distances = [];
       for (let i = 0; i < this.shelters.length; i++) {
         gmapsObjects.push(new google.maps.LatLng(this.shelters[i].latitude, this.shelters[i].longitude))
