@@ -42,7 +42,7 @@
         </mat-error>
       </mat-form-field>
       <label>Gender: </label>
-      <mat-radio-group formControlName="sex" aria-label="sex">
+      <mat-radio-group formControlName="sex" aria-label="sex" required>
         <mat-radio-button class="example-radio-button" color="primary" value="M">Male</mat-radio-button>
         <mat-radio-button class="example-radio-button" color="primary" value="F">Female</mat-radio-button>
       </mat-radio-group>
@@ -164,6 +164,10 @@
         </button>  
       </mat-list-item>
     </mat-nav-list>
+    <div id="note-review" *ngIf="evacueeList.length == 0">
+      <mat-icon id="icon" color="warn">warning</mat-icon> 
+      <span class="warning"> Please add at least one evacuee to your group. Click on back arrow button (top right corner) to edit </span>
+    </div>
     <button *ngIf="!addFormButtonHidden" 
     id="add-new" 
     mat-flat-button 
@@ -179,7 +183,7 @@
         <span id="chip-span">Evacuees added: {{ evacueeCounter }}</span> 
       </mat-chip>
     </mat-chip-list>-->
-    <div *ngIf="!addFormHidden">
+    <div *ngIf="!addFormHidden && evacueeList.length != 0">
     <div *ngIf="!editTitle">
       <mat-icon id="icon">person_add</mat-icon>
       <h3 id="evacueeFormTitle">Add an Evacuee</h3>
@@ -325,7 +329,7 @@
       *ngIf="!submitButtonHidden" 
       id="save-group-button" 
       #submitButton 
-      (click)="saveGroup()" 
+      (click)="saveGroup();" 
       mat-flat-button color="primary" 
       [disabled]="evacueeList.length == 0" 
       matStepperNext>
@@ -345,7 +349,7 @@
     </button>
     <div>
       <p>Chosen shelter: <b>{{shelter.shelterName}}</b></p>
-      <p>Address you provided: <b>{{address.street}}, {{address.city}}, 
+      <p *ngIf="address">Address you provided: <b>{{address.street}}, {{address.city}}, 
         {{address.state}} {{address.zip}}</b></p>
       <p [ngClass]="{warning: evacueeList.length == 0}">Total evacuees: <b>{{evacueeList.length}}</b></p>
     </div>
