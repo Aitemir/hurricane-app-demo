@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>
+    <mat-icon id="icon">location_on</mat-icon>
+    Nearest shelter
+</h1>
+<div mat-dialog-content>
+    <p>It looks like the nearest location to you 
+        is <b>{{data.shelter_name}}</b> ({{this.distance}} 
+        miles away). Do you want to register for this shelter?
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button 
+    mat-stroked-button 
+    id="no-button"
+    (click)="onNoClick(-1)">        
+        Cancel
+    </button>
+    <button 
+    mat-flat-button 
+    color="primary" 
+    #btnFocus=matButton 
+    [autofocus]="btnFocus.focus()"
+    (click)="onNoClick(data.index)">        
+        Yes
+    </button>
+</div>

@@ -1,0 +1,29 @@
+.registration {
+    max-width:600px;
+    margin:auto;
+    margin-top: 15px;
+    background-color: white;
+} 
+
+.registration-card {
+    max-width: 600px;
+  }
+
+.header-image {
+    background-image: url('./../../assets/1.jpg');
+    background-size: cover;
+}
+
+.mat-card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+    max-height: 400px;
+}
+
+.mat-card-actions {
+    height: 45px;
+    padding-right: 10px;
+    text-align: right;
+}

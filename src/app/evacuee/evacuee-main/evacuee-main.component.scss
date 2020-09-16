@@ -1,0 +1,213 @@
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width-2 {
+  width: 100%;
+}
+
+#icon {
+  position: relative;
+  top: 4px;
+  left: 0px;
+}
+
+h4 {
+  text-align: center;
+}
+
+#add-new {
+  margin-bottom: 20px;
+  height: 45px;
+  width: 100%;
+}
+
+.button {
+  float:right;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+}
+  
+.example-radio-button {
+  margin: 5px;
+}
+
+.veteran-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 30px;
+    padding-top: 10px;
+  } 
+
+.outofstate-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
+} 
+
+#cancel-button {
+  right: 5px;
+}
+
+#add-person-icon {
+    position: relative;
+    top: 4px;
+    left: 0px;
+}
+
+#review-icon {
+    position: relative;
+    top: 5px;
+    left: 0px;
+}
+
+#info-icon {
+  position: relative;
+  top: 7px;
+  left: 0px;
+}
+
+#chip-info-icon {
+  position: relative;
+  top: 0px;
+  left: -2px;
+}
+
+#chip-span{
+  position: relative;
+  left: 5px;
+}
+
+.warning {
+  color: red;
+}
+
+#go-back-icon {
+  top: 2px;
+  float: right;
+}
+
+form {
+    margin-top: 10px;
+}
+
+#note {
+    color: rgba(0,0,0,.54);
+}
+
+#note-review {
+    padding-top: 16px;
+    color: rgba(0,0,0,.54);
+}
+
+#evacueeFormTitle {
+    margin-left: 5px;
+    margin-top: 10px; //3px;
+    display:inline-block;
+}
+
+#evacueeInfoFormGroup {
+    margin-top: -9px;
+}
+
+mat-list-item {
+  height: 15px;
+  background-color: #f5f5f5
+} 
+
+mat-chip-list {
+  display: inline-block;
+}
+
+mat-chip {
+  max-width: 190px;
+  min-height: 33px;
+} 
+
+#save-group-button {
+    margin-left: 10px;
+}
+
+#cancel-button {
+  margin-left: 10px;
+}
+
+mat-nav-list {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+ 
+#submitGroupButton {
+    margin-top: 15px;
+}
+
+.mat-stepper-horizontal {
+    max-width:600px;
+    margin:auto;
+    margin-top: 15px;
+    box-shadow: 0px 0px 1px #888888;
+}
+
+.mat-stepper-horizontal .mat-form-field {
+    width:100%;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+ 
+@media screen and (max-width: 20060px) {
+    .mat-elevation-z8 {
+      background: transparent;
+      box-shadow: none;
+    }
+  
+    .mat-header-row {
+      display: none;
+    }
+  
+    tbody {
+      display: block;
+      width: 100%;
+    }
+    
+    .mat-table {
+      background: transparent;
+      * {
+        box-sizing: border-box;
+      }
+  
+      .mat-row {
+        display: block;
+        overflow: hidden;
+        height: auto;
+        position: relative;
+        clear: both;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        background-color: #fff;
+        border-radius: 3px;
+        + .mat-row {
+          margin-top: 24px;
+        }
+      }
+  
+      .mat-cell {
+        display: block;
+        width: 100%;
+        padding: 0 16px;
+        margin: 16px 0;
+        border: 0 none;   
+      }
+    }
+  
+    .mat-paginator {
+      margin-top: 24px;
+    }
+  
+  }

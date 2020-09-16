@@ -1,0 +1,12 @@
+<h1 class="warning" mat-dialog-title>
+    <mat-icon id="icon">warning</mat-icon>
+    Warning
+</h1>
+<div mat-dialog-content>
+    <p>{{data.message}}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button (click)="onNoClick()" color="primary" routerLink="/evacuee">        
+        Go back
+    </button>
+</div>
