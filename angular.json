@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme.scss"
             ],
             "scripts": []
           },
@@ -66,7 +67,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hurricane-app:build"
+            "browserTarget": "hurricane-app:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -1,12 +1,15 @@
 <mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="addressFormGroup" label="Your Info"><!--completed="false"-->
+  <mat-step [stepControl]="addressFormGroup" label="Your Info">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
     <div>
       <mat-icon id="icon">person</mat-icon>
       <h3 id="evacueeFormTitle">Personal Info 
       </h3>       
     </div>
     <div id="note">
-      <span>note: you are the responsible point of contact for your evacuee group. Your email and physical address can be used for further communication</span>
+      <span>note: you are the responsible point of contact for your evacuee group. Your email and physical address may be used for further communication.</span>
     </div>  
     <form [formGroup]="addressFormGroup">         
       <table class="example-full-width-2" cellspacing="0">
@@ -46,18 +49,6 @@
         <mat-radio-button class="example-radio-button" color="primary" value="M">Male</mat-radio-button>
         <mat-radio-button class="example-radio-button" color="primary" value="F">Female</mat-radio-button>
       </mat-radio-group>
-        <!--<mat-form-field>
-          <mat-label>Race</mat-label>
-          <mat-select formControlName="race" required>
-            <mat-option>--</mat-option>
-            <mat-option *ngFor="let race of races" [value]="race.value">
-              {{race.value}}
-            </mat-option>
-          </mat-select>
-          <mat-error> 
-            Please enter you race
-          </mat-error>
-        </mat-form-field>-->
         <section class="veteran-section">
           <mat-checkbox formControlName="veteran" color="primary">Veteran</mat-checkbox>
         </section>
@@ -78,7 +69,6 @@
           formControlName="phone" 
           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
         </mat-form-field>
-      <!--New Elements Above-->
       <div>
         <mat-icon id="icon">location_city</mat-icon>
         <h3 id="evacueeFormTitle">Physical Address</h3>        
@@ -109,7 +99,6 @@
             <mat-form-field class="example-full-width">
               <mat-label>Zip Code</mat-label>
               <input matInput #postalCode maxlength="5" placeholder="Ex. 33613" formControlName="zip" required>
-              <!--<mat-hint align="start">{{postalCode.value.length}} / 5</mat-hint>-->
               <mat-error>Please enter your zip code</mat-error>
             </mat-form-field>
           </td>
@@ -124,7 +113,6 @@
       (click)="addMainEvacuee();this.openQuestionDialog();" 
       [disabled]="!addressFormGroup.valid">        
         NEXT
-        <mat-icon>arrow_forward</mat-icon>
       </button>
     </div>
     <div class="button">
@@ -177,12 +165,6 @@
       <mat-icon>add_circle</mat-icon>
       <span> ADD AN EVACUEE</span>
     </button>
-    <!--<mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
-      <mat-chip [selected]="evacueeCounter != 0">
-        <mat-icon id="chip-info-icon">info</mat-icon>
-        <span id="chip-span">Evacuees added: {{ evacueeCounter }}</span> 
-      </mat-chip>
-    </mat-chip-list>-->
     <div *ngIf="!addFormHidden && evacueeList.length != 0">
     <div *ngIf="!editTitle">
       <mat-icon id="icon">person_add</mat-icon>
@@ -233,18 +215,6 @@
         <mat-radio-button class="example-radio-button" color="primary" value="M">Male</mat-radio-button>
         <mat-radio-button class="example-radio-button" color="primary" value="F">Female</mat-radio-button>
       </mat-radio-group>
-        <!--<mat-form-field>
-          <mat-label>Race</mat-label>
-          <mat-select formControlName="race" required>
-            <mat-option>--</mat-option>
-            <mat-option *ngFor="let race of races" [value]="race.value">
-              {{race.value}}
-            </mat-option>
-          </mat-select>
-          <mat-error> 
-            Please enter you race
-          </mat-error>
-        </mat-form-field>-->
         <section class="veteran-section">
           <mat-checkbox formControlName="veteran" color="primary">Veteran</mat-checkbox>
         </section>
@@ -266,27 +236,6 @@
           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
         </mat-form-field>
     </form>
-    <!--<mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
-      <mat-chip [selected]="evacueeCounter != 0">
-        <mat-icon id="chip-info-icon">info</mat-icon>
-        <span id="chip-span">Evacuees added: {{ evacueeCounter }}</span> 
-      </mat-chip>
-    </mat-chip-list>
-    <mat-nav-list>
-      <mat-list-item>
-        <a matLine>{{mainUserPlaceholder.firstName}} {{mainUserPlaceholder.lastName}} (you)</a>
-      </mat-list-item>
-      <mat-list-item  *ngFor="let evacuee of evacueeList | slice:1; let i = index;">
-        <a matLine>{{evacuee.firstName}} {{ evacuee.lastName}}</a>
-        <button *ngIf="!editButtonHidden" mat-icon-button matTooltip="edit evacuee" (click)="editEvacuee(i)">
-          <mat-icon color="primary">edit</mat-icon>
-        </button>
-        <button *ngIf="!deleteButtonHidden" mat-icon-button matTooltip="delete evacuee" (click)="deleteEvacuee(i)">
-          <mat-icon color="primary">delete</mat-icon>
-        </button>  
-      </mat-list-item>
-    </mat-nav-list>
-    -->
   </div>
     <div class="button">
       <button 
@@ -334,7 +283,6 @@
       [disabled]="evacueeList.length == 0" 
       matStepperNext>
         NEXT
-        <mat-icon>arrow_forward</mat-icon> 
       </button>
     </div>
   </mat-step>
@@ -370,10 +318,6 @@
         <th mat-header-cell *matHeaderCellDef> S. </th>
         <td mat-cell *matCellDef="let evacuee"><span class="mobile-label">Sex:</span> {{evacuee.sex}} </td>
       </ng-container>
-      <!--<ng-container matColumnDef="race">
-        <th mat-header-cell *matHeaderCellDef> R. </th>
-        <td mat-cell *matCellDef="let evacuee"><span class="mobile-label">Race:</span> {{evacuee.race}} </td>
-      </ng-container>-->
       <ng-container matColumnDef="veteran">
         <th mat-header-cell *matHeaderCellDef> Vet. </th>
         <td mat-cell *matCellDef="let evacuee"><span class="mobile-label">Veteran:</span> {{evacuee.veteran}} </td>

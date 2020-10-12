@@ -25,7 +25,6 @@ export class EvacueeSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.evacuees = this.data.evacueeGroup.evacuees;
-    console.log(this.evacuees);
     this.dataSource = new MatTableDataSource<Evacuee>(this.evacuees);
   }
   
@@ -53,7 +52,6 @@ export class EvacueeSummaryComponent implements OnInit {
   }
 
   call() {
-    console.log(this.selection.selected);
     let evacuees: Evacuee [] = this.selection.selected; 
     for (let i = 0; i < evacuees.length; i++) {
       this.evacuees[i].covidSymptoms = 'Y';

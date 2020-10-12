@@ -20,12 +20,17 @@ import { EvacueeService } from './evacuee/evacuee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ClipboardModule } from '@angular/cdk/clipboard'
+import {MatDialogModule} from '@angular/material/dialog';
 import {} from 'googlemaps';
+import { AboutUsDialogComponent } from './about-us-dialog/about-us-dialog.component';
+import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
+    AboutUsDialogComponent,
+    WrongRouteComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ import {} from 'googlemaps';
     HttpClientModule,
     ClipboardModule,
     MatCardModule,
+    MatDialogModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAaQmjmK4Z1QvTrwR6VRRbRsEF0gi9lARI',
       libraries: ['geometry']

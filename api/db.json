@@ -1,0 +1,46 @@
+{
+    "shelters": [
+        {
+            "shelterId": 1,
+            "shelterName": "Mango",
+            "latitude": 27.982343,
+            "longitude": -82.303397,
+            "address": "Seffner Community Alliance, Seffner, FL 33584"
+        },
+        {
+            "shelterId": 2,
+            "shelterName": "Apple",
+            "latitude": 28.043565,
+            "longitude": -82.419979,
+            "address": "3428-3260 E Bougainvillea Ave, Tampa, FL 33612"
+        },
+        {
+            "shelterId": 3,
+            "shelterName": "Pineapple",
+            "latitude": 28.088467,
+            "longitude": -82.487335,
+            "address": "3516 McFarland Rd, Tampa, FL 33618"
+        },
+        {
+            "shelterId": 4,
+            "shelterName": "Orange",
+            "latitude": 27.957382,
+            "longitude": -82.456347,
+            "address": "898-856 E Scott St, Tampa, FL 33602"
+        },
+        {
+            "shelterId": 5,
+            "shelterName": "Lime",
+            "latitude": 27.945156,
+            "longitude": -82.528483,
+            "address": "Westshore, Tampa, FL 33609"
+        },
+        {
+            "shelterId": 6,
+            "shelterName": "Banana",
+            "latitude": 27.955753,
+            "longitude": -82.421595,
+            "address": "Historic Ybor Tampa, FL"
+        }
+    ]
+  }

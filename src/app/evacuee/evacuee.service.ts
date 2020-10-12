@@ -1,18 +1,14 @@
 import { Injectable, Inject } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { EvacueeGroup } from '../shared/evacuee-group.model';
-import { BehaviorSubject } from 'rxjs';
 import { Shelter } from '../shared/shelter.model';
 import { Evacuee } from '../shared/evacuee.model';
 import { Address } from '../shared/address.model';
 import { State } from '../shared/state.model';
 import { Race } from '../shared/race.model';
 
-// key that is used to access the data in local storageconst 
 const ADDRESS_STORAGE_KEY = 'address';
 const EVACUEES_STORAGE_KEY = 'evacuees';
 const SHELTER_STORAGE_KEY = 'shelter';
-
 
 @Injectable({
   providedIn: 'root'
@@ -51,11 +47,8 @@ export class EvacueeService {
   }
 
   public storeEvacuees(evacuee: Evacuee): void {  
-    // get array of tasks from local storage
     const evacuees = this.storage.get(EVACUEES_STORAGE_KEY) || [];
-    // push new task to array
     evacuees.push(evacuee);
-    // insert updated array to local storage
     this.storage.set(EVACUEES_STORAGE_KEY, evacuees);
   }
 

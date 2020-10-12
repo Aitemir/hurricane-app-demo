@@ -24,7 +24,6 @@ import { EvacueeSummaryComponent } from '../evacuee-summary/evacuee-summary.comp
 export class EvacueeMainComponent implements OnInit {
 
   constructor(private evacueeService: EvacueeService, 
-    private evacueeHttpService: EvacueeHttpService,
     private formBuilder: FormBuilder, 
     public appComp: AppComponent, 
     private _snackBar: MatSnackBar,
@@ -41,7 +40,6 @@ export class EvacueeMainComponent implements OnInit {
   evacueeList: Evacuee[] = []; 
   evacueeChangeIndex;
   validatedEvacueeList: Evacuee[] = [];
-  //races = this.evacueeService.getRaces();
   states = this.evacueeService.getStates();
 
   ngOnInit() { 
@@ -57,7 +55,6 @@ export class EvacueeMainComponent implements OnInit {
         email: ['', Validators.email],
         phone: [null],
         sex: ['', Validators.required],
-        //race: ['', Validators.required],
         veteran:[false],
         outofstate:[false],
         age:['', Validators.compose([Validators.min(1 ), Validators.max(110)])],
@@ -75,7 +72,6 @@ export class EvacueeMainComponent implements OnInit {
         email: [this.evacuee.email, Validators.email],
         phone: [this.evacuee.phone],
         sex: [this.evacuee.sex, Validators.required],
-        //race: [this.evacuee.race, Validators.required],
         veteran: [this.evacuee.veteran],
         outofstate: [this.evacuee.outofstate],
         age:[this.evacuee.age, Validators.compose([Validators.min(1), Validators.max(110)])],
@@ -97,7 +93,6 @@ export class EvacueeMainComponent implements OnInit {
       email: ['', Validators.email],
       phone: [null],
       sex: ['', Validators.required],
-      //race: ['', Validators.required],
       veteran:[false],
       outofstate:[false],
       age:['', Validators.compose([Validators.min(1 ), Validators.max(110)])] 
@@ -110,12 +105,12 @@ export class EvacueeMainComponent implements OnInit {
       this.shelter.shelterName = shelter.shelterName;
     }
     catch {
-      this.openWarningDialog('It looks like you have not chosen your shelter. Please go back and select one from the menu');
+      let warningMessage = 'It looks like you have not chosen your shelter. Please go back and select one from the menu'
+      this.openWarningDialog(warningMessage);
     }
     this.evacueeGroup = <EvacueeGroup>{}
     this.evacueeList = this.evacueeService.getEvacuees();
     this.loadData(0, this.pageSize);
-    this.evacueeService.showStorage();
   }
 
   @ViewChild('stepper') stepper: MatStepper;
@@ -155,7 +150,6 @@ export class EvacueeMainComponent implements OnInit {
   get email(): any { return this.evacueeInfoFormGroup.get('email')}
   get phone(): any { return this.evacueeInfoFormGroup.get('phone')}
   get sex(): any { return this.evacueeInfoFormGroup.get('sex')}
-  //get race(): any { return this.evacueeInfoFormGroup.get('race')}
   get veteran(): any { return this.evacueeInfoFormGroup.get('veteran')}
   get outofstate(): any { return this.evacueeInfoFormGroup.get('outofstate')}
   get age(): any { return this.evacueeInfoFormGroup.get('age')}
@@ -167,7 +161,6 @@ export class EvacueeMainComponent implements OnInit {
     evacuee.email = this.addressFormGroup.controls.email.value;
     evacuee.phone = this.addressFormGroup.controls.phone.value;
     evacuee.sex = this.addressFormGroup.controls.sex.value;
-    //evacuee.race = this.addressFormGroup.controls.race.value;
     evacuee.veteran = this.addressFormGroup.controls.veteran.value;
     evacuee.outofstate = this.addressFormGroup.controls.outofstate.value;
     evacuee.age = this.addressFormGroup.controls.age.value;
@@ -190,7 +183,6 @@ export class EvacueeMainComponent implements OnInit {
     evacuee.email = this.addressFormGroup.controls.email.value;
     evacuee.phone = this.addressFormGroup.controls.phone.value;
     evacuee.sex = this.addressFormGroup.controls.sex.value;
-    //evacuee.race = this.addressFormGroup.controls.race.value;
     evacuee.veteran = this.addressFormGroup.controls.veteran.value;
     evacuee.outofstate = this.addressFormGroup.controls.outofstate.value;
     evacuee.age = this.addressFormGroup.controls.age.value;
@@ -213,7 +205,7 @@ export class EvacueeMainComponent implements OnInit {
     address.state = this.addressFormGroup.controls.state.value;
     address.zip = this.addressFormGroup.controls.zip.value;
     this.address = address;
-    this.evacueeService.storeAddress(address) // test
+    this.evacueeService.storeAddress(address);
   }
 
   addToGroup(){
@@ -228,10 +220,9 @@ export class EvacueeMainComponent implements OnInit {
     var evacuee: Evacuee;
     evacuee = this.evacueeInfoFormGroup.value;
     this.evacueeList.push(evacuee)
-    this.evacueeService.storeEvacuees(evacuee);    //test:
+    this.evacueeService.storeEvacuees(evacuee);
     this.evacueeCounter += 1;
     this.evacueeInfoFormGroup.reset({veteran: false, outofstate: false, email: '', phone: null});
-    console.log(this.evacueeList);
     this.saveGroup();
     this.submitButtonHidden = false;
     this.saveButtonHidden = true;   
@@ -243,19 +234,17 @@ export class EvacueeMainComponent implements OnInit {
 
   editEvacuee(i) {
     this.evacuee = this.evacueeList[i+1]; 
-    console.log(this.evacuee);
     this.evacueeInfoFormGroup = this.formBuilder.group({
       firstName: [this.evacuee.firstName, Validators.required],
       lastName: [this.evacuee.lastName, Validators.required],
       email: [this.evacuee.email, Validators.email],
       phone: [this.evacuee.phone],
       sex: [this.evacuee.sex, Validators.required],
-      //race: [this.evacuee.race, Validators.required],
       veteran: [this.evacuee.veteran],
       outofstate: [this.evacuee.outofstate],
       age:[this.evacuee.age, Validators.compose([Validators.min(1), Validators.max(110)])] 
     })
-    this.evacueeChangeIndex = i+1;//test:
+    this.evacueeChangeIndex = i+1;
     this.addButtonHidden = true;
     this.submitButtonHidden = true;
     this.updateButtonHidden = false;
@@ -285,9 +274,9 @@ export class EvacueeMainComponent implements OnInit {
     this.openSnackBar(this.message);
     this.evacueeInfoFormGroup.reset({veteran: false, outofstate: false, email: '', phone: null});
     this.addButtonHidden = false;
-    this.submitButtonHidden = false;
-    this.updateButtonHidden = true;
-    this.cancelButtonHidden = true;
+    this.submitButtonHidden = false;//
+    this.updateButtonHidden = true;//
+    this.cancelButtonHidden = true;//
     this.editButtonHidden = false;
     this.deleteButtonHidden = false;
     this.editTitle = false;
@@ -316,7 +305,6 @@ export class EvacueeMainComponent implements OnInit {
     this.openSnackBar(this.message); 
     if (i !== -1) {
         this.evacueeList.splice(i+1, 1);
-        console.log(this.evacueeList);
     }    
     this.evacueeCounter -= 1;
     this.evacueeInfoFormGroup.reset({veteran: false, outofstate: false, email: '', phone: null});
@@ -375,7 +363,7 @@ export class EvacueeMainComponent implements OnInit {
       height: '225x',
       data: {name: this.mainUserPlaceholder.firstName, message: message}
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(_ => {
     });
   }
 
@@ -387,14 +375,7 @@ export class EvacueeMainComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result){
-      console.log(result);
-      const evacueeGroupObservable = this.evacueeHttpService.addEvacueeGroup(result)
-      evacueeGroupObservable.subscribe((res)=> {
-          this.openConfirmationDialog('Your evacuee group has been successfuly pre-registered');
-      },
-      (error) => {
-          this.openWarningDialog(error);
-        });    
+        this.openConfirmationDialog('Your evacuee group has been successfuly pre-registered');
       }
     });
   }
@@ -407,16 +388,7 @@ export class EvacueeMainComponent implements OnInit {
     this.evacueeGroup.evacuees = this.evacueeList; 
     this.evacueeGroup.shelterId = this.shelter.shelterId;
 
-    this.evacueeService.showStorage();
     this.openSummaryDialog(this.evacueeGroup);    
-    /*const evacueeGroupObservable = this.evacueeHttpService.addEvacueeGroup(this.evacueeGroup)
-    evacueeGroupObservable.subscribe((res)=> {
-        console.log(res);
-        this.openConfirmationDialog('Your evacuee group has been successfuly pre-registered');
-    },
-    (error) => {
-        this.openWarningDialog(error);
-    });    */
   }
   
   validateEvacuee(evacuee: Evacuee) {
