@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server api/db.json --routes api/routes.json --no-cors=true",
-    "dev": "concurrently \"npm run build\" \"npm run api\""
+    "dev": "concurrently \"npm run build\" \"npm run api --watch=false\""
   },
   "private": true,
   "dependencies": {
