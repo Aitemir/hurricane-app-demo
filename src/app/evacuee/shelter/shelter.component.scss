@@ -84,3 +84,14 @@ agm-map {
 .label {
     color: red;
 }
+
+@media screen and (max-width:600px) {
+    
+    .agm-map-container {
+        width: 100%;
+    }
+
+    .container {
+        max-width: 90%;
+    } 
+  }

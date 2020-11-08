@@ -206,3 +206,9 @@ table {
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .mat-stepper-horizontal {
+      max-width: 90%;
+    }
+  }

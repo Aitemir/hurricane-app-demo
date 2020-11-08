@@ -34,3 +34,9 @@
     padding-right: 10px;
     text-align: right;
 }
+
+@media screen and (max-width:600px) {
+    .registration {
+        max-width: 90%;
+    } 
+  }
