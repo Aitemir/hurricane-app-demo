@@ -45,7 +45,8 @@ export class ShelterComponent implements OnInit {
 
   getAvailableShelters() {
     const promise = new Promise<Shelter[]>((resolve, reject) => {
-      const apiURL = "api/shelters";
+      const apiURL = "https://raw.githubusercontent.com/Aitemir/hurricane-app-demo-db/main/shelters.json";
+      //const apiURL = "api/shelters";
       //const apiURL = "https://hurricane-app-be-demo.azurewebsites.net/shelters";
       this.http
         .get<Shelter[]>(apiURL)
