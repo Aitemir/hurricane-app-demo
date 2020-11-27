@@ -1,9 +1,10 @@
-.example-full-width {
-  width: 100%;
+.full-width {
+  max-width: 100%;
 }
 
-.example-full-width-2 {
-  width: 100%;
+table {
+  table-layout: fixed;
+
 }
 
 #icon {
@@ -26,12 +27,12 @@ h4 {
   float:right;
 }
 
-.example-radio-group {
+.radio-group {
     display: flex;
     flex-direction: column;
 }
   
-.example-radio-button {
+.radio-button {
   margin: 5px;
 }
 
@@ -130,7 +131,7 @@ mat-chip {
 } 
 
 #save-group-button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #cancel-button {
@@ -150,6 +151,7 @@ mat-nav-list {
     max-width:600px;
     margin:auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     box-shadow: 0px 0px 1px #888888;
 }
 
@@ -163,6 +165,7 @@ table {
 }
  
 @media screen {
+
     .mat-elevation-z8 {
       background: transparent;
       box-shadow: none;
@@ -209,6 +212,7 @@ table {
 
   @media screen and (max-width: 600px) {
     .mat-stepper-horizontal {
-      max-width: 90%;
+      margin-top: 0px;
+      max-width: 99.5%;
     }
   }

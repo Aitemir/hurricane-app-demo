@@ -9,20 +9,21 @@
       </h3>       
     </div>
     <div id="note">
-      <span>note: you are the responsible point of contact for your evacuee group. Your email and physical address may be used for further communication.</span>
+      <span>note: you are the responsible point of contact for your evacuee group. 
+        Your email and physical address may be used for further communication.</span>
     </div>  
     <form [formGroup]="addressFormGroup">         
-      <table class="example-full-width-2" cellspacing="0">
+      <table class="full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width-2">
+            <mat-form-field>
               <mat-label>First name</mat-label>
               <input matInput placeholder="Ex. John" formControlName="firstName" [maxLength]="50" required>
               <mat-error>Please enter your first name</mat-error>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width-2">
+            <mat-form-field>
               <mat-label>Last name</mat-label>
               <input matInput placeholder="Ex. Doe" formControlName="lastName" [maxLength]="50" required>
               <mat-error>Please enter your last name</mat-error>
@@ -36,7 +37,7 @@
         min="0" xr
         max="110"
         placeholder="Age" 
-        formControlName="age" 
+        formControlName="age"
         name="age" 
         maxlength="3" 
         required> 
@@ -46,8 +47,8 @@
       </mat-form-field>
       <label>Gender: </label>
       <mat-radio-group formControlName="sex" aria-label="sex" required>
-        <mat-radio-button class="example-radio-button" color="primary" value="M">Male</mat-radio-button>
-        <mat-radio-button class="example-radio-button" color="primary" value="F">Female</mat-radio-button>
+        <mat-radio-button class="radio-button" color="primary" value="M">Male</mat-radio-button>
+        <mat-radio-button class="radio-button" color="primary" value="F">Female</mat-radio-button>
       </mat-radio-group>
         <section class="veteran-section">
           <mat-checkbox formControlName="veteran" color="primary">Veteran</mat-checkbox>
@@ -78,15 +79,15 @@
           <textarea matInput placeholder="Ex. 4200 East Fowler Ave" formControlName="street" [maxLength]="50" required></textarea>
           <mat-error>Please enter your street address</mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="full-width">
           <mat-label>City</mat-label>
           <input matInput placeholder="Ex. Tampa" formControlName="city" [maxLength]="20" required>
           <mat-error>Please enter your city</mat-error>
       </mat-form-field>
-      <table class="example-full-width" cellspacing="0">
+      <table class="full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="full-width">
               <mat-label>State</mat-label>
               <mat-select formControlName="state">
                 <mat-option>--</mat-option>
@@ -96,7 +97,7 @@
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="full-width">
               <mat-label>Zip Code</mat-label>
               <input matInput #postalCode maxlength="5" placeholder="Ex. 33613" formControlName="zip" required>
               <mat-error>Please enter your zip code</mat-error>
@@ -177,17 +178,17 @@
       </h3>
     </div>
     <form id="evacueeInfoFormGroup" [formGroup]="evacueeInfoFormGroup">           
-      <table class="example-full-width-2" cellspacing="0">
+      <table class="full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width-2">
+            <mat-form-field class="full-width">
               <mat-label>First name</mat-label>
               <input matInput placeholder="Ex. John" formControlName="firstName" [maxLength]="50" required>
               <mat-error>Please enter your first name</mat-error>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width-2">
+            <mat-form-field class="full-width">
               <mat-label>Last name</mat-label>
               <input matInput placeholder="Ex. Doe" formControlName="lastName" [maxLength]="50" required>
               <mat-error>Please enter your last name</mat-error>
@@ -212,8 +213,8 @@
       </mat-form-field>
       <label>Gender: </label>
       <mat-radio-group formControlName="sex" aria-label="sex">
-        <mat-radio-button class="example-radio-button" color="primary" value="M">Male</mat-radio-button>
-        <mat-radio-button class="example-radio-button" color="primary" value="F">Female</mat-radio-button>
+        <mat-radio-button class="radio-button" color="primary" value="M">Male</mat-radio-button>
+        <mat-radio-button class="radio-button" color="primary" value="F">Female</mat-radio-button>
       </mat-radio-group>
         <section class="veteran-section">
           <mat-checkbox formControlName="veteran" color="primary">Veteran</mat-checkbox>
