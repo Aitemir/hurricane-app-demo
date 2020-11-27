@@ -4,12 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build", 
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server api/db.json --routes api/routes.json --no-cors=true",
-    "dev": "concurrently \"npm run build\" \"npm run api --watch=false\""
+    "dev": "concurrently \"npm run build\" \"npm run api --watch=false\"",
+    "start:api": "concurrently — kill-others \"npm run api\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
